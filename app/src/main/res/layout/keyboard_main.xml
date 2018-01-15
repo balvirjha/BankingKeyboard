@@ -63,18 +63,38 @@
         <android.support.v4.view.ViewPager
             android:id="@+id/emojiKeyboard"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="200dp"
             android:layout_alignParentBottom="true"
             android:background="#ebebeb">
 
         </android.support.v4.view.ViewPager>
 
-        <android.support.v4.view.ViewPager
-            android:id="@+id/intropages"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:background="@android:color/transparent">
+            android:layout_height="200dp"
+            android:layout_alignParentBottom="true"
+            android:background="#33ff00ff">
 
-        </android.support.v4.view.ViewPager>
+            <android.support.v4.view.ViewPager
+                android:id="@+id/intropages"
+                android:layout_width="match_parent"
+                android:layout_height="180dp">
+
+            </android.support.v4.view.ViewPager>
+
+            <RelativeLayout
+                android:id="@+id/viewPagerIndicator"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="5dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="for dots. Follow http://www.androprogrammer.com/2015/06/view-pager-with-circular-indicator.html" />
+            </RelativeLayout>
+        </RelativeLayout>
     </RelativeLayout>
 </RelativeLayout>

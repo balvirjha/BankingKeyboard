@@ -92,7 +92,7 @@ public class TextKeyboardViewNew extends View implements SharedPreferences.OnSha
         //pagerSlidingTabStrip.setViewPager(viewPager);
 
         viewPager.setCurrentItem(1);
-        introPager.setCurrentItem(1);
+        introPager.setCurrentItem(0);
 
         PreferenceManager.getDefaultSharedPreferences(context).registerOnSharedPreferenceChangeListener(this);
     }

@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
-        android:text="Slide right for next page"
+        android:text="Slide left/right for next/previous page"
         android:textColor="#ffff00"
         android:textSize="35sp"
         app:layout_constraintBottom_toBottomOf="parent"
