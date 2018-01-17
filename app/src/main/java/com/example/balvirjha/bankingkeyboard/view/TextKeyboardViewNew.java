@@ -1,7 +1,9 @@
 package com.example.balvirjha.bankingkeyboard.view;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.preference.PreferenceManager;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
@@ -109,6 +111,7 @@ public class TextKeyboardViewNew extends View implements SharedPreferences.OnSha
 
             }
 
+            @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onPageSelected(int position) {
                 Toast.makeText(context, "Position: " + position, Toast.LENGTH_SHORT).show();
@@ -116,10 +119,12 @@ public class TextKeyboardViewNew extends View implements SharedPreferences.OnSha
                     btn_finish.setBackground(context.getResources().getDrawable(R.drawable.selecteditem_dot));
                     btn_next.setBackground(context.getResources().getDrawable(R.drawable.nonselecteditem_dot));
                     btn_last.setBackground(context.getResources().getDrawable(R.drawable.nonselecteditem_dot));
+                    skipOrDone.setText("SKIP");
                 } else if (position == 1) {
                     btn_finish.setBackground(context.getResources().getDrawable(R.drawable.nonselecteditem_dot));
                     btn_next.setBackground(context.getResources().getDrawable(R.drawable.selecteditem_dot));
                     btn_last.setBackground(context.getResources().getDrawable(R.drawable.nonselecteditem_dot));
+                    skipOrDone.setText("SKIP");
 
                 } else if (position == 2) {
                     btn_finish.setBackground(context.getResources().getDrawable(R.drawable.nonselecteditem_dot));
