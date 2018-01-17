@@ -5,11 +5,9 @@ import android.support.v4.view.PagerAdapter
 import android.support.v4.view.ViewPager
 import android.view.View
 import android.view.ViewGroup
-import com.example.balvirjha.bankingkeyboard.constants.UTFTexts
 import com.example.balvirjha.bankingkeyboard.view.IntroSinglePageView
 import com.example.balvirjha.bankingkeyboard.view.IntroSinglePageViewSecond
 import com.example.balvirjha.bankingkeyboard.view.IntroSinglePageViewThird
-import com.example.balvirjha.bankingkeyboard.view.RecyclerViewAdapter
 import java.util.*
 
 /**
@@ -30,7 +28,7 @@ class IntroPagerAdapter(context: Context, pager: ViewPager, keyboardHeight: Int)
         this.pages = ArrayList()
         pages?.add(IntroSinglePageView(context).getView())
         pages?.add(IntroSinglePageViewSecond(context).getView())
-        pages?.add (IntroSinglePageViewThird(context).getView())
+        pages?.add(IntroSinglePageViewThird(context).getView())
 
     }
 

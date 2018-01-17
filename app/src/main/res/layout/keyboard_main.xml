@@ -70,6 +70,7 @@
         </android.support.v4.view.ViewPager>
 
         <RelativeLayout
+            android:id="@+id/introLayout"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_alignParentBottom="true"
@@ -90,10 +91,44 @@
                 android:layout_marginTop="5dp"
                 android:gravity="center">
 
+                <View
+                    android:id="@+id/btn_finish"
+                    android:layout_width="12dip"
+                    android:layout_height="12dip"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="15dip"
+                    android:background="@drawable/selecteditem_dot" />
+
+                <View
+                    android:id="@+id/btn_next"
+                    android:layout_width="12dip"
+                    android:layout_height="12dip"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="15dip"
+                    android:layout_toRightOf="@+id/btn_finish"
+                    android:background="@drawable/nonselecteditem_dot" />
+
+                <View
+                    android:id="@+id/btn_last"
+                    android:layout_width="12dip"
+                    android:layout_height="12dip"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerInParent="true"
+                    android:layout_toRightOf="@+id/btn_next"
+                    android:background="@drawable/nonselecteditem_dot" />
+
                 <TextView
+                    android:id="@+id/skipOrDone"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="for dots. Follow http://www.androprogrammer.com/2015/06/view-pager-with-circular-indicator.html" />
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="10dp"
+                    android:gravity="right"
+                    android:text="SKIP"
+                    android:textColor="#ff00ff" />
+
             </RelativeLayout>
         </RelativeLayout>
     </RelativeLayout>

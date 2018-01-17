@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.balvirjha.bankingkeyboard.TextKeyboardService;
@@ -34,6 +35,8 @@ public class TextKeyboardViewNew extends View implements SharedPreferences.OnSha
     private TextKeyboardService textKeyboardService;
     private int width;
     private int height;
+    private View btn_finish, btn_next, btn_last, introLayout;
+    private TextView skipOrDone;
 
     public TextKeyboardViewNew(Context context) {
         super(context);
@@ -62,6 +65,19 @@ public class TextKeyboardViewNew extends View implements SharedPreferences.OnSha
         introPager = (ViewPager) layout.findViewById(R.id.intropages);
 
         pagerSlidingTabStrip = (EditText) layout.findViewById(R.id.emojiCategorytab);
+        btn_finish = (View) layout.findViewById(R.id.btn_finish);
+        btn_last = (View) layout.findViewById(R.id.btn_last);
+        btn_next = (View) layout.findViewById(R.id.btn_next);
+        skipOrDone = (TextView) layout.findViewById(R.id.skipOrDone);
+        introLayout = (View) layout.findViewById(R.id.introLayout);
+        skipOrDone.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                introLayout.setVisibility(GONE);
+            }
+        });
+        pagerSlidingTabStrip = (EditText) layout.findViewById(R.id.emojiCategorytab);
+        pagerSlidingTabStrip = (EditText) layout.findViewById(R.id.emojiCategorytab);
         pagerSlidingTabStrip.clearFocus();
         pagerSlidingTabStrip.setOnClickListener(new OnClickListener() {
             @Override
@@ -75,7 +91,7 @@ public class TextKeyboardViewNew extends View implements SharedPreferences.OnSha
             public void onFocusChange(View view, boolean b) {
                 Toast.makeText(context, "Focus changes", Toast.LENGTH_SHORT).show();
                 textPagerAdapter.setHeight(800);
-                introPagerAdapter.setHeight(800);
+                introPagerAdapter.setHeight(850);
             }
         });
 
@@ -86,6 +102,39 @@ public class TextKeyboardViewNew extends View implements SharedPreferences.OnSha
 
         viewPager.setAdapter(textPagerAdapter);
         introPager.setAdapter(introPagerAdapter);
+
+        introPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                Toast.makeText(context, "Position: " + position, Toast.LENGTH_SHORT).show();
+                if (position == 0) {
+                    btn_finish.setBackground(context.getResources().getDrawable(R.drawable.selecteditem_dot));
+                    btn_next.setBackground(context.getResources().getDrawable(R.drawable.nonselecteditem_dot));
+                    btn_last.setBackground(context.getResources().getDrawable(R.drawable.nonselecteditem_dot));
+                } else if (position == 1) {
+                    btn_finish.setBackground(context.getResources().getDrawable(R.drawable.nonselecteditem_dot));
+                    btn_next.setBackground(context.getResources().getDrawable(R.drawable.selecteditem_dot));
+                    btn_last.setBackground(context.getResources().getDrawable(R.drawable.nonselecteditem_dot));
+
+                } else if (position == 2) {
+                    btn_finish.setBackground(context.getResources().getDrawable(R.drawable.nonselecteditem_dot));
+                    btn_next.setBackground(context.getResources().getDrawable(R.drawable.nonselecteditem_dot));
+                    btn_last.setBackground(context.getResources().getDrawable(R.drawable.selecteditem_dot));
+                    skipOrDone.setText("Done");
+                }
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
 
         setupDeleteButton();
 
